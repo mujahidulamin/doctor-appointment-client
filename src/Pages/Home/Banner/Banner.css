@@ -1,0 +1,9 @@
+.bg-img{
+    /* background-image: url('../../../assets/images/BannerBG-2.jpg') ;
+    background-size: cover;
+    opacity: 0.5; */
+    background-color: #0E1629;
+}
+.border-bottom{
+    border-bottom: 1px solid #1c273f;
+}

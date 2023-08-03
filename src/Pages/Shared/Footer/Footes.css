@@ -1,0 +1,66 @@
+.bg-footer {
+  /* background-image: url("../../../assets/BG.jpg");
+    background-size: cover;
+    color: white;
+    padding: 20px; */
+  background-color: #0e1629;
+}
+
+.border-bottom-footer {
+  width: 90%;
+  border-bottom: 1px solid #ccced4;
+  margin: 0 auto;
+}
+
+
+/*   
+  .hero-content2 {
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  .btn-contact {
+    background-color: #6d2e46;
+    padding: 10px;
+    color: white;
+    font-family: Open Sans;
+    font-style: Bold;
+    border-radius: 5px;
+    letter-spacing: 0.5px;
+    width: 60%;
+  }
+  
+  .title-contact {
+    color: white;
+    font-family: "Manrope", sans-serif;
+    line-height: 37.5px;
+    letter-spacing: 2px;
+    font-size: 28px;
+    font-weight: 700;
+  }
+  
+  .input-bg {
+    background-color: transparent;
+    border-bottom: 1px solid white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: white;
+    padding: 2px;
+  }
+  
+  ::placeholder { 
+    color: white;
+  }
+  
+  .contact {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+  }
+  
+  .mr {
+    margin-right: 4.5rem;
+  }
+   */

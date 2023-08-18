@@ -14,7 +14,7 @@ const AddDoctor = () => {
   const { user } = useContext(AuthContext);
   // console.log(user);
 
-  const url = `http://localhost:5000/allDoctorsInfo?email=${user?.email}`;
+  const url = `https://doctor-appointment-server-university.vercel.app/allDoctorsInfo?email=${user?.email}`;
 
   const { data: allDoctorsInfo = [] } = useQuery({
     queryKey: ["bookings", user?.email],
@@ -34,7 +34,9 @@ const AddDoctor = () => {
   const { data: consultations, isLoading } = useQuery({
     queryKey: ["consultation"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/consultation");
+      const res = await fetch(
+        "https://doctor-appointment-server-university.vercel.app/consultation"
+      );
       const data = await res.json();
       return data;
     },
@@ -44,7 +46,9 @@ const AddDoctor = () => {
   const { data: doctorsInfo = [] } = useQuery({
     queryKey: ["doctorsInfo"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/doctorsInfo");
+      const res = await fetch(
+        "https://doctor-appointment-server-university.vercel.app/doctorsInfo"
+      );
       const data = await res.json();
       return data;
     },
@@ -82,14 +86,17 @@ const AddDoctor = () => {
           // console.log(doctor);
 
           // save doctor info to database
-          fetch("http://localhost:5000/doctors", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-              authorization: `bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(doctor),
-          })
+          fetch(
+            "https://doctor-appointment-server-university.vercel.app/doctors",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+                authorization: `bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(doctor),
+            }
+          )
             .then((res) => res.json())
             .then((result) => {
               console.log(result);
@@ -131,14 +138,17 @@ const AddDoctor = () => {
           // console.log(doctor);
 
           // save doctor info to database
-          fetch(`http://localhost:5000/doctors?email=${user?.email}`, {
-            method: "PUT",
-            headers: {
-              "content-type": "application/json",
-              authorization: `bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(doctor),
-          })
+          fetch(
+            `https://doctor-appointment-server-university.vercel.app/doctors?email=${user?.email}`,
+            {
+              method: "PUT",
+              headers: {
+                "content-type": "application/json",
+                authorization: `bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(doctor),
+            }
+          )
             .then((res) => res.json())
             .then((result) => {
               console.log(result);

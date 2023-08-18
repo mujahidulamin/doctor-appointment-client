@@ -22,13 +22,16 @@ const Prescription = () => {
       doctorEmail: user?.email,
     };
 
-    fetch("http://localhost:5000/prescription", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(prescription),
-    })
+    fetch(
+      "https://doctor-appointment-server-university.vercel.app/prescription",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(prescription),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -40,7 +43,7 @@ const Prescription = () => {
 
   const { user } = useContext(AuthContext);
 
-  const url = `http://localhost:5000/doctor-appointment?email=${user?.email}`;
+  const url = `https://doctor-appointment-server-university.vercel.app/doctor-appointment?email=${user?.email}`;
 
   const { data: patients = [] } = useQuery({
     queryKey: ["patients", user?.email],

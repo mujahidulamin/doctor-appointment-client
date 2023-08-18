@@ -4,11 +4,10 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
 
-
 const MyPatient = () => {
   const { user } = useContext(AuthContext);
 
-  const url = `http://localhost:5000/doctor-appointment?email=${user?.email}`;
+  const url = `https://doctor-appointment-server-university.vercel.app/doctor-appointment?email=${user?.email}`;
 
   const { data: patients = [] } = useQuery({
     queryKey: ["patients", user?.email],
@@ -29,13 +28,16 @@ const MyPatient = () => {
 
   const sendEmail = (button) => {
     axios
-      .post("http://localhost:5000/send-email", {
-        button,
-        doctorEmail,
-        patientEmail,
-      })
+      .post(
+        "https://doctor-appointment-server-university.vercel.app/send-email",
+        {
+          button,
+          doctorEmail,
+          patientEmail,
+        }
+      )
       .then((response) => {
-        console.log(response.data.message); 
+        console.log(response.data.message);
         toast.success(response.data.message);
       })
       .catch((error) => {

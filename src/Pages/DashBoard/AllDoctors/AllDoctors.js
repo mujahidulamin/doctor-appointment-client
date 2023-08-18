@@ -8,7 +8,9 @@ const AllDoctors = () => {
   const { data: doctors = [], refetch } = useQuery({
     queryKey: ["doctors"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/allDoctorsAdmin");
+      const res = await fetch(
+        "https://doctor-appointment-server-university.vercel.app/allDoctorsAdmin"
+      );
       const data = await res.json();
       return data;
     },
@@ -20,12 +22,15 @@ const AllDoctors = () => {
 
   //verify a seller
   const handleVerify = (id) => {
-    fetch(`http://localhost:5000/allDoctorsAdmin/${id}`, {
-      method: "PUT",
-      headers: {
-        authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://doctor-appointment-server-university.vercel.app/allDoctorsAdmin/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => {
         if (res.status === 401 || res.status === 403) {
           return logOut();
@@ -60,34 +65,38 @@ const AllDoctors = () => {
           <tbody>
             {doctors?.map((doctor) => (
               <tr>
-              <th>
-                <div className="avatar">
-                  <div className="w-full h-20 rounded">
-                    <img src={doctor.image} alt="" />
+                <th>
+                  <div className="avatar">
+                    <div className="w-full h-20 rounded">
+                      <img src={doctor.image} alt="" />
+                    </div>
                   </div>
-                </div>
-              </th>
-              <th>
-                <div className="flex items-center space-x-3">
-                  <div className="flex items-center justify-center">
-                    <div className="font-bold">{doctor.name} </div>
-                    {doctor.verifyStatus && <GoVerified className="text-blue-600  ml-1" />}
+                </th>
+                <th>
+                  <div className="flex items-center space-x-3">
+                    <div className="flex items-center justify-center">
+                      <div className="font-bold">{doctor.name} </div>
+                      {doctor.verifyStatus && (
+                        <GoVerified className="text-blue-600  ml-1" />
+                      )}
+                    </div>
                   </div>
-                </div>
-              </th>
-              <th>
-                <span className="badge badge-ghost badge-sm">{doctor.email}</span>
-              </th>
-              <th>
-                <button
-                  onClick={() => handleVerify(doctor._id)}
-                  disabled={doctor.verifyStatus}
-                  className="btn btn-primary btn-md"
-                >
-                  {doctor.verifyStatus ? "verified" : "verify"}
-                </button>
-              </th>
-            </tr>
+                </th>
+                <th>
+                  <span className="badge badge-ghost badge-sm">
+                    {doctor.email}
+                  </span>
+                </th>
+                <th>
+                  <button
+                    onClick={() => handleVerify(doctor._id)}
+                    disabled={doctor.verifyStatus}
+                    className="btn btn-primary btn-md"
+                  >
+                    {doctor.verifyStatus ? "verified" : "verify"}
+                  </button>
+                </th>
+              </tr>
             ))}
           </tbody>
         </table>

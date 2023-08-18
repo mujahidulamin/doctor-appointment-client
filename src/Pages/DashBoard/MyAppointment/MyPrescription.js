@@ -8,7 +8,7 @@ const MyPrescription = () => {
 
   //fetch prescription data from database
 
-  const url1 = `http://localhost:5000/prescriptions?email=${user?.email}`;
+  const url1 = `https://doctor-appointment-server-university.vercel.app/prescriptions?email=${user?.email}`;
 
   const { data: prescriptions = [] } = useQuery({
     queryKey: ["prescriptions", user?.email],

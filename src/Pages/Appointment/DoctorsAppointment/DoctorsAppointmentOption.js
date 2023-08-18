@@ -16,7 +16,9 @@ const DoctorsAppointmentOption = ({ appointment, setDoctorForTreatment }) => {
   //get the verified seller
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/verifiedSeller?email=${email}`)
+      .get(
+        `https://doctor-appointment-server-university.vercel.app/verifiedSeller?email=${email}`
+      )
       .then((res) => {
         console.log(res.data);
         setVerified(res.data);
@@ -94,7 +96,9 @@ const DoctorsAppointmentOption = ({ appointment, setDoctorForTreatment }) => {
                     className=" btn bg-[#07acf3] hover:bg-[#38BDF8] border-none text-md text-white  py-2 px-2 rounded 
                font-semibold "
                     onClick={() => setDoctorForTreatment(appointment)}
-                  >Book Appointment</label>
+                  >
+                    Book Appointment
+                  </label>
                 </>
               )}
             </>

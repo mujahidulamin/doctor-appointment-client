@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Project Name: Online Doctor's Appointment System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Live Site Link of this project: [Online Doctor's Appointment System](https://doctor-s-portal-56002.web.app/).
 
-## Available Scripts
+## Admin access Email Password
 
-In the project directory, you can run:
+adminEmail: mujahidulamin1108152@gmail.com
+adminPassword: tareq@2023
 
-### `npm start`
+## Some Features and functionality:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- This website has firebase authentication system.
+- Email and password authentication, Google authentication,
+- Mongodb is used for storing the data and used as a primary database for all the CRUD operations present in the website.
+- In the consultation page, patient can see the categories. Under the each categories patient can see doctor's details.
+- In the appointment page patient can search and book their desired doctor.
+- After booking doctor patient can see his appointment and pay doctor's bill with strip from the my appointment route. In the dashboard route there is another option my prescription there patient can see their prescription that is prescribed by his doctor. They can download their prescription as well.
+- Doctor can see his patient.
+- Doctor can prescribed his patient.
+- Doctor can create and update his profile.
+- Doctor can notify his patient through email if the patient is absent
+- Admin can see all patients
+- Admin can see all doctor's
+- Admin can verify doctor's
+- Admin can make others user admin.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Front End Technologies And Tools:
 
-### `npm test`
+- React
+- React Router
+- Firebase
+- React firebase hook
+- Tailwind(DaisyUI, headlessui)
+- React-hook-form
+- React-icons
+- React Query
+- Axios
+- React hot toast
+- date-fns
+- lottie-react
+- react-day-picker
+- react-qr-code
+- react-input-mask
+- react-to-pdf
+- stripe-js
+- slick-carousel
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Backend Technologies And Tools:
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Node Js
+- Express JS
+- MongoDB
+- JWT
+- Stripe JS

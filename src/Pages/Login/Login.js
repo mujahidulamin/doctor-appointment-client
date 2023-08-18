@@ -88,7 +88,7 @@ const Login = () => {
 
   const saveUserToDb = (name, email, category) => {
     const user = { name, email, category };
-    fetch("http://localhost:5000/users", {
+    fetch("https://doctor-appointment-server-university.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -120,7 +120,7 @@ const Login = () => {
               <div className="flex flex-row mt-5 items-center justify-center ">
                 <p className="mb-0 mr-4 text-2xl text-white">Sign in with</p>
                 <button
-                onClick={handleGoogleSignIn}
+                  onClick={handleGoogleSignIn}
                   // type="button"
                   className="mx-1 h-9 w-9 rounded-full uppercase leading-normal text-white  transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
                 >
@@ -219,16 +219,7 @@ const Login = () => {
             </div>
           </div>
         </div>
-
-        
       </section>
-
-
-
-
-
-
-      
     </div>
   );
 };

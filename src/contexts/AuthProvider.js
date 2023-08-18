@@ -15,7 +15,7 @@ import app from "../firebase/firebase.config";
 export const AuthContext = createContext();
 const auth = getAuth(app);
 
-const googleProvider = new GoogleAuthProvider()
+const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -31,19 +31,19 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-   // 4. Google Signin
-   const signInWithGoogle = () => {
-    setLoading(true)
-    return signInWithPopup(auth, googleProvider)
-}
+  // 4. Google Signin
+  const signInWithGoogle = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
 
   const updateUserProfile = (userInfo) => {
     return updateProfile(auth.currentUser, userInfo);
   };
 
   const forgetPassword = (email) => {
-    return sendPasswordResetEmail(auth, email)
- }
+    return sendPasswordResetEmail(auth, email);
+  };
 
   const logOut = () => {
     setLoading(true);
@@ -59,15 +59,13 @@ const AuthProvider = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
-
-
-
-
   //get speciality data from database
   const [specialities, setSpecialities] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/consultation")
+    fetch(
+      "https://doctor-appointment-server-university.vercel.app/consultation"
+    )
       .then((response) => response.json())
       .then((data) => setSpecialities(data));
   }, []);
@@ -81,7 +79,7 @@ const AuthProvider = ({ children }) => {
     user,
     specialities,
     forgetPassword,
-    signInWithGoogle
+    signInWithGoogle,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

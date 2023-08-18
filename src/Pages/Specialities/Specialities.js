@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Specialities'
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Specialities";
 const Specialities = ({ speciality }) => {
   const { id } = speciality;
 
@@ -8,11 +8,10 @@ const Specialities = ({ speciality }) => {
   // console.log(specialist);
 
   // useEffect(() => {
-  //     fetch(`http://localhost:5000/consult/${id}`)
+  //     fetch(`https://doctor-appointment-server-university.vercel.app/consult/${id}`)
   //         .then(response => response.json())
   //         .then(data => setSpecialist(data));
   // }, [id]);
-
 
   return (
     <div className="mt-20">

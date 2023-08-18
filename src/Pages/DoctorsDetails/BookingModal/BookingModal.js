@@ -2,17 +2,16 @@ import { format } from "date-fns";
 import React, { useContext } from "react";
 import { AuthContext } from "./../../../contexts/AuthProvider";
 
-
 const BookingModal = ({ doctor, selectedDate }) => {
   const {
     // specialities,
-    user
+    user,
   } = useContext(AuthContext);
 
   // console.log(specialities);
   // console.log(doctor);
   // console.log(user);
-  const date = format(selectedDate, 'PP')
+  const date = format(selectedDate, "PP");
 
   const handleBooking = (event) => {
     event.preventDefault();
@@ -20,7 +19,6 @@ const BookingModal = ({ doctor, selectedDate }) => {
     const date = form.date.value;
     const timeFrom = form.timeFrom.value;
     const timeTo = form.timeTo.value;
-
 
     // const slot = form.slot.value;
     const patientName = form.name.value;
@@ -40,27 +38,26 @@ const BookingModal = ({ doctor, selectedDate }) => {
       doctorspeciality,
       patientName,
       patientPhone,
-      doctorName
-    }
+      doctorName,
+    };
     console.log(booking);
 
-    fetch('http://localhost:5000/bookings', {
-      method: 'POST',
+    fetch("https://doctor-appointment-server-university.vercel.app/bookings", {
+      method: "POST",
       headers: {
-        'content-type': 'application/json'
+        "content-type": "application/json",
       },
-      body: JSON.stringify(booking)
+      body: JSON.stringify(booking),
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         console.log(data);
         if (data.acknowledged) {
           event.target.reset();
-          alert('Booking Comfirm')
+          alert("Booking Comfirm");
         }
-
-      })
-  }
+      });
+  };
   return (
     <>
       <input type="checkbox" id="booking-modal" className="modal-toggle" />
@@ -72,18 +69,40 @@ const BookingModal = ({ doctor, selectedDate }) => {
           >
             ✕
           </label>
-          <h3 className="text-3xl font-bold text-green-700">{doctor?.specialities} Specialist</h3>
-          <h3 className="text-2xl mt-1 inline-block mr-2 ">Dr. {doctor?.name}
+          <h3 className="text-3xl font-bold text-green-700">
+            {doctor?.specialities} Specialist
           </h3>
-          ( <p className="inline-block text-xs">
+          <h3 className="text-2xl mt-1 inline-block mr-2 ">
+            Dr. {doctor?.name}
+          </h3>
+          ({" "}
+          <p className="inline-block text-xs">
             <span className="text-xs">{doctor?.AvailabilityTimeFrom}</span> -
             <span className="text-xs">{doctor?.AvailabilityTimeTo}</span>
-          </p> )
-          <p className="text-red-600">Maximum Appointmenent Time 30 Min</p>
-          <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mt-8'>
-            <input type="date" name="date" required className="input w-full input-bordered" />
-            <input type="time" name="timeFrom" required className="input w-full input-bordered" />
-            <input type="time" name="timeTo" required className="input w-full input-bordered" />
+          </p>{" "}
+          )<p className="text-red-600">Maximum Appointmenent Time 30 Min</p>
+          <form
+            onSubmit={handleBooking}
+            className="grid grid-cols-1 gap-3 mt-8"
+          >
+            <input
+              type="date"
+              name="date"
+              required
+              className="input w-full input-bordered"
+            />
+            <input
+              type="time"
+              name="timeFrom"
+              required
+              className="input w-full input-bordered"
+            />
+            <input
+              type="time"
+              name="timeTo"
+              required
+              className="input w-full input-bordered"
+            />
             {/* <select name='slot' className="select select-bordered w-full">
               {
                 doctor.slots.map((slot, id) => <option
@@ -92,10 +111,34 @@ const BookingModal = ({ doctor, selectedDate }) => {
                 >{slot}</option>)
               }
             </select> */}
-            <input defaultValue={user?.displayName} readOnly name='name' type="text" placeholder="Your Name" className="input w-full input-bordered" />
-            <input defaultValue={user?.email} readOnly name='email' type="email" placeholder="Email Address" className="input w-full input-bordered" />
-            <input name='phone' type="number" placeholder="Phone Number" required className="input w-full input-bordered" />
-            <input className='w-full btn btn-accent' type="submit" value="Submit" />
+            <input
+              defaultValue={user?.displayName}
+              readOnly
+              name="name"
+              type="text"
+              placeholder="Your Name"
+              className="input w-full input-bordered"
+            />
+            <input
+              defaultValue={user?.email}
+              readOnly
+              name="email"
+              type="email"
+              placeholder="Email Address"
+              className="input w-full input-bordered"
+            />
+            <input
+              name="phone"
+              type="number"
+              placeholder="Phone Number"
+              required
+              className="input w-full input-bordered"
+            />
+            <input
+              className="w-full btn btn-accent"
+              type="submit"
+              value="Submit"
+            />
           </form>
         </div>
       </div>
